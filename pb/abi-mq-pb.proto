@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option go_package = "./;pb";
+
+package mq;
+
+message SendTask {
+	string topic = 1;
+	string body = 2;
+}
+
+message SendResult {
+	int32 errno = 1;
+	string errmsg = 2;
+	string id = 3;
+}
+
+message QueueCreateTask {
+	string topic = 1;
+	string queue = 2;
+}
+
+message QueueCreateResult {
+	int32 errno = 1;
+	string errmsg = 2;
+}
+
+message QueueRemoveTask {
+	string topic = 1;
+	string queue = 2;
+}
+
+message QueueRemoveResult {
+	int32 errno = 1;
+	string errmsg = 2;
+}
+
+service Service {
+	rpc Send (SendTask) returns (SendResult);
+	rpc QueueCreate (QueueCreateTask) returns (QueueCreateResult);
+	rpc QueueRemove (QueueRemoveTask) returns (QueueRemoveResult);
+}
+

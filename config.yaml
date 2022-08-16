@@ -1,0 +1,13 @@
+
+name: "abi-db"
+
+services:
+  abi-mq:
+    type: "abi-mq"
+    driver: aws-s3
+    region: ap-northeast-1
+    bucket: abi-mq
+    accesskey: AKIAW4KFHVINU4TGR3SP
+    secret: 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
+
+    
